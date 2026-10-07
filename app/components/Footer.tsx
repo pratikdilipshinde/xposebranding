@@ -65,22 +65,16 @@ export default function Footer() {
               </a>
 
               <a href="tel:+919999999999" className="hover:text-xpose-red">
-                +91 99999 99999
+                +91 98220 15900
               </a>
 
-              <a href="#" className="hover:text-xpose-red">
-                Instagram ↗
-              </a>
-
-              <a href="#" className="hover:text-xpose-red">
-                LinkedIn ↗
-              </a>
+              
             </div>
           </div>
         </div>
 
         <div className="flex flex-col gap-3 pt-7 text-xs text-xpose-gray sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Xpose Branding. All rights reserved.</p>
+          <p>© 2020 Xpose Branding. All rights reserved.</p>
 
           <p>Signage · Branding · Visual Experiences</p>
         </div>
