@@ -1,26 +1,150 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ========================================
+     XPOSE BRANDING — COLOR SYSTEM
+     ======================================== */
+
+  /* Brand */
+  --xpose-red: #ce0028;
+  --xpose-deep-red: #9f001f;
+  --xpose-dark-red: #760018;
+  --xpose-soft-red: #e54865;
+  --xpose-pale-red: #fce8ec;
+
+  /* Neutrals */
+  --xpose-black: #0b0b0c;
+  --xpose-charcoal: #171719;
+  --xpose-dark-gray: #252529;
+  --xpose-gray: #6b6b70;
+  --xpose-border: #e7e7e9;
+  --xpose-off-white: #f7f7f5;
+  --xpose-white: #ffffff;
+
+  /* ========================================
+     SEMANTIC COLORS
+     ======================================== */
+
+  --background: var(--xpose-off-white);
+  --foreground: var(--xpose-black);
+
+  --surface: var(--xpose-white);
+  --surface-dark: var(--xpose-charcoal);
+
+  --primary: var(--xpose-red);
+  --primary-hover: var(--xpose-deep-red);
+
+  --muted: var(--xpose-gray);
+  --border: var(--xpose-border);
+
+  /* ========================================
+     EFFECTS
+     ======================================== */
+
+  --red-glow: rgba(206, 0, 40, 0.18);
+  --red-glow-soft: rgba(206, 0, 40, 0.08);
 }
 
 @theme inline {
+  /* ========================================
+     DEFAULT THEME
+     ======================================== */
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  /* ========================================
+     XPOSE BRAND COLORS
+     ======================================== */
+
+  --color-xpose-red: var(--xpose-red);
+  --color-xpose-deep-red: var(--xpose-deep-red);
+  --color-xpose-dark-red: var(--xpose-dark-red);
+  --color-xpose-soft-red: var(--xpose-soft-red);
+  --color-xpose-pale-red: var(--xpose-pale-red);
+
+  /* ========================================
+     XPOSE NEUTRALS
+     ======================================== */
+
+  --color-xpose-black: var(--xpose-black);
+  --color-xpose-charcoal: var(--xpose-charcoal);
+  --color-xpose-dark-gray: var(--xpose-dark-gray);
+  --color-xpose-gray: var(--xpose-gray);
+  --color-xpose-border: var(--xpose-border);
+  --color-xpose-off-white: var(--xpose-off-white);
+  --color-xpose-white: var(--xpose-white);
+
+  /* ========================================
+     SEMANTIC COLORS
+     ======================================== */
+
+  --color-surface: var(--surface);
+  --color-surface-dark: var(--surface-dark);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+
+  /* ========================================
+     FONTS
+     ======================================== */
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ========================================
+   BASE
+   ======================================== */
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================================
+   SELECTION
+   ======================================== */
+
+::selection {
+  background: var(--xpose-red);
+  color: var(--xpose-white);
+}
+
+/* ========================================
+   LINKS
+   ======================================== */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--xpose-off-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--xpose-charcoal);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--xpose-red);
 }
