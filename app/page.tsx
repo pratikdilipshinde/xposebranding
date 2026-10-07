@@ -1,69 +1,415 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
+import {
+  ArrowUpRight,
+  Mail,
+} from "lucide-react";
+
+const RED = "#CE0028";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="relative min-h-screen overflow-hidden bg-[#fafafa] text-[#171717]">
+
+      {/* ================= BACKGROUND ================= */}
+
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.035]"
+        style={{
+          backgroundImage: `
+            linear-gradient(#111 1px, transparent 1px),
+            linear-gradient(90deg, #111 1px, transparent 1px)
+          `,
+          backgroundSize: "70px 70px",
+        }}
+      />
+
+      {/* Red ambient glow */}
+      <motion.div
+        className="pointer-events-none absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full"
+        style={{
+          background: `radial-gradient(
+            circle,
+            ${RED}30 0%,
+            ${RED}12 35%,
+            transparent 70%
+          )`,
+          filter: "blur(40px)",
+        }}
+        animate={{
+          scale: [1, 1.12, 1],
+          x: [0, -30, 0],
+          y: [0, 25, 0],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      {/* ================= HEADER ================= */}
+
+      <motion.header
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        className="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-10"
+      >
+        {/* Actual Xpose Logo */}
+        <div className="relative h-[72px] w-[250px] sm:h-[82px] sm:w-[290px]">
+          <Image
+            src="/logo.jpg"
+            alt="Xpose Branding"
+            fill
+            priority
+            className="object-contain object-left"
+          />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+
+        {/* Status */}
+        <div className="hidden items-center gap-3 sm:flex">
+          <motion.span
+            className="h-2.5 w-2.5 rounded-full"
+            style={{ backgroundColor: RED }}
+            animate={{
+              opacity: [1, 0.35, 1],
+              scale: [1, 0.8, 1],
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+            }}
+          />
+
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
+            Launching Soon
+          </span>
+        </div>
+      </motion.header>
+
+      {/* ================= HERO ================= */}
+
+      <section className="relative z-10 flex min-h-[calc(100vh-115px)] items-center px-6 pb-16 pt-8 md:px-10">
+
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+
+          {/* ================= LEFT ================= */}
+
+          <div>
+
+            {/* Eyebrow */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="mb-7 flex items-center gap-3"
+            >
+              <span
+                className="h-[2px] w-12"
+                style={{ backgroundColor: RED }}
+              />
+
+              <span
+                className="text-xs font-bold uppercase tracking-[0.28em]"
+                style={{ color: RED }}
+              >
+                New Website
+              </span>
+            </motion.div>
+
+            {/* Heading */}
+
+            <div className="overflow-hidden">
+
+              <motion.h1
+                initial={{ y: 100 }}
+                animate={{ y: 0 }}
+                transition={{
+                  duration: 0.9,
+                  delay: 0.3,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="text-[15vw] font-black leading-[0.82] tracking-[-0.07em] sm:text-8xl md:text-9xl lg:text-[8.5rem]"
+              >
+                WE
+              </motion.h1>
+
+            </div>
+
+            <div className="overflow-hidden">
+
+              <motion.h1
+                initial={{ y: 120 }}
+                animate={{ y: 0 }}
+                transition={{
+                  duration: 0.9,
+                  delay: 0.42,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="text-[15vw] font-black leading-[0.82] tracking-[-0.07em] sm:text-8xl md:text-9xl lg:text-[8.5rem]"
+              >
+                ARE
+              </motion.h1>
+
+            </div>
+
+            <div className="overflow-hidden">
+
+              <motion.h1
+                initial={{ y: 120 }}
+                animate={{ y: 0 }}
+                transition={{
+                  duration: 0.9,
+                  delay: 0.54,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="text-[15vw] font-black leading-[0.82] tracking-[-0.07em] sm:text-8xl md:text-9xl lg:text-[8.5rem]"
+              >
+                <span style={{ color: RED }}>COMING.</span>
+              </motion.h1>
+
+            </div>
+
+            {/* Description */}
+
+            <motion.p
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.9 }}
+              className="mt-9 max-w-xl text-base leading-7 text-gray-500 md:text-lg"
+            >
+              We’re working on something new. Our website is being
+              redesigned to bring you a better Xpose Branding experience.
+            </motion.p>
+
+            {/* CTA */}
+
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 1 }}
+              className="mt-8 flex flex-wrap gap-4"
+            >
+
+              <a
+                href="mailto:hello@xposebranding.com"
+                className="group flex items-center gap-3 rounded-full px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.04]"
+                style={{
+                  backgroundColor: RED,
+                  boxShadow: `0 12px 35px ${RED}30`,
+                }}
+              >
+                <Mail size={17} />
+
+                Get in touch
+
+                <ArrowUpRight
+                  size={17}
+                  className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+                />
+              </a>
+
+              <a
+                href="#"
+                className="flex items-center gap-3 rounded-full border border-gray-200 bg-white px-6 py-3.5 text-sm font-semibold transition-all duration-300 hover:border-gray-400 hover:shadow-lg"
+              >
+                Follow Xpose
+              </a>
+
+            </motion.div>
+
+          </div>
+
+          {/* ================= RIGHT VISUAL ================= */}
+
+          <div className="relative flex min-h-[430px] items-center justify-center">
+
+            {/* Large rotating ring */}
+
+            <motion.div
+              className="absolute h-[320px] w-[320px] rounded-full border border-gray-200 md:h-[440px] md:w-[440px]"
+              animate={{
+                rotate: 360,
+              }}
+              transition={{
+                duration: 35,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            >
+              {/* Red dot */}
+              <div
+                className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rounded-full"
+                style={{ backgroundColor: RED }}
+              />
+            </motion.div>
+
+            {/* Dashed ring */}
+
+            <motion.div
+              className="absolute h-[250px] w-[250px] rounded-full border border-dashed border-gray-300 md:h-[350px] md:w-[350px]"
+              animate={{
+                rotate: -360,
+              }}
+              transition={{
+                duration: 22,
+                repeat: Infinity,
+                ease: "linear",
+              }}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+            {/* Central Logo */}
+
+            <motion.div
+              className="relative z-10 flex h-[210px] w-[210px] items-center justify-center rounded-full bg-white shadow-2xl md:h-[280px] md:w-[280px]"
+              animate={{
+                y: [-8, 8, -8],
+                scale: [1, 1.025, 1],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              style={{
+                boxShadow: `0 30px 90px ${RED}22`,
+              }}
+            >
+
+              <div
+                className="absolute inset-3 rounded-full border"
+                style={{
+                  borderColor: `${RED}30`,
+                }}
+              />
+
+              <div className="relative h-[115px] w-[115px] md:h-[150px] md:w-[150px]">
+
+                <Image
+                  src="/logo.jpg"
+                  alt="Xpose Branding logo"
+                  fill
+                  className="object-contain"
+                />
+
+              </div>
+
+            </motion.div>
+
+            {/* Floating Card */}
+
+            <motion.div
+              className="absolute right-0 top-4 rounded-2xl border border-white bg-white/85 px-5 py-4 shadow-xl backdrop-blur-md"
+              animate={{
+                y: [0, -12, 0],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <div className="text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400">
+                We Create
+              </div>
+
+              <div className="mt-1 text-sm font-bold">
+                Brands That Stand Out
+              </div>
+            </motion.div>
+
+            {/* Floating Card */}
+
+            <motion.div
+              className="absolute bottom-4 left-0 rounded-2xl border border-white bg-white/85 px-5 py-4 shadow-xl backdrop-blur-md"
+              animate={{
+                y: [0, 12, 0],
+              }}
+              transition={{
+                duration: 4.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <div
+                className="text-xl font-black"
+                style={{ color: RED }}
+              >
+                XP
+              </div>
+
+              <div className="text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400">
+                Branding
+              </div>
+            </motion.div>
+
+          </div>
+
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* ================= FOOTER ================= */}
+
+      <motion.footer
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4 }}
+        className="relative z-20 border-t border-gray-100"
+      >
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-6 py-6 sm:flex-row md:px-10">
+
+          <p className="text-xs text-gray-400">
+            © 2020 Xpose Branding. All rights reserved.
+          </p>
+
+          <div className="flex items-center gap-5">
+
+            {/* <a
+              href="#"
+              className="text-gray-400 transition hover:text-[#CE0028]"
+            >
+              <Instagram size={18} />
+            </a>
+
+            <a
+              href="#"
+              className="text-gray-400 transition hover:text-[#CE0028]"
+            >
+              <Linkedin size={18} />
+            </a> */}
+
+            <a
+              href="mailto:hello@xposebranding.com"
+              className="text-gray-400 transition hover:text-[#CE0028]"
+            >
+              <Mail size={18} />
+            </a>
+
+          </div>
+
+          <p className="text-xs text-gray-400">
+            Something exciting is on the way.
+          </p>
+
+        </div>
+      </motion.footer>
+
+      {/* Bottom red accent */}
+
+      <motion.div
+        className="fixed bottom-0 left-0 z-50 h-1"
+        style={{ backgroundColor: RED }}
+        initial={{ width: 0 }}
+        animate={{ width: "100%" }}
+        transition={{
+          duration: 1.5,
+          delay: 0.4,
+        }}
+      />
+
+    </main>
   );
 }
