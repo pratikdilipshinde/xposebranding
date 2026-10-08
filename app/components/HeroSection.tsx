@@ -21,7 +21,7 @@ const slides = [
     ending: "IMPOSSIBLE TO IGNORE.",
     description:
       "Premium signage and visual branding solutions designed to make your business stand out.",
-    image: "/images/slide-1.jpg",
+    image: "/hero/hero-1.jpg",
     label: "01",
   },
   {
@@ -32,7 +32,7 @@ const slides = [
     ending: "AFTER DARK.",
     description:
       "Create powerful first impressions with custom illuminated signage built around your identity.",
-    image: "/images/slide-1.jpg",
+    image: "/hero/hero-2.jpg",
     label: "02",
   },
   {
@@ -43,7 +43,7 @@ const slides = [
     ending: "A NEW DIMENSION.",
     description:
       "Premium dimensional lettering that gives your storefront, office or space a distinctive identity.",
-    image: "/images/slide-1.jpg",
+    image: "/hero/hero-3.jpg",
     label: "03",
   },
   {
@@ -54,7 +54,7 @@ const slides = [
     ending: "INTO AN EXPERIENCE.",
     description:
       "Transform interiors into memorable brand environments that people remember.",
-    image: "/images/slide-1.jpg",
+    image: "/hero/hero-4.jpg",
     label: "04",
   },
 ];
@@ -120,7 +120,7 @@ export default function HeroSection() {
               />
 
               {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-black/55" />
+              <div className="absolute inset-0 bg-black/5" />
 
               {/* Red Gradient */}
               <div
@@ -128,9 +128,9 @@ export default function HeroSection() {
                 style={{
                   background: `linear-gradient(
                     90deg,
-                    rgba(11,11,12,0.95) 0%,
-                    rgba(11,11,12,0.75) 40%,
-                    rgba(11,11,12,0.25) 75%,
+                    rgba(11,11,12,0.85) 0%,
+                    rgba(11,11,12,0.45) 40%,
+                    rgba(11,11,12,0.15) 75%,
                     rgba(11,11,12,0.4) 100%
                   )`,
                 }}
@@ -227,11 +227,11 @@ export default function HeroSection() {
                     >
                       {slide.highlight}
 
-                      {/* Red underline */}
+                      {/* Red underline
                       <span
                         className="absolute -bottom-2 left-0 h-[4px] w-[65%] rounded-full sm:-bottom-3 sm:h-[6px]"
                         style={{ backgroundColor: RED }}
-                      />
+                      /> */}
                     </span>
 
                     <br />
@@ -251,7 +251,7 @@ export default function HeroSection() {
 
                     <a
                       href="#contact"
-                      className="group flex items-center justify-center gap-3 bg-xpose-red px-6 py-4 text-xs font-bold uppercase tracking-[0.08em] text-white transition-colors duration-300 hover:bg-xpose-deep-red sm:px-7"
+                      className="group flex items-center rounded-2xl text-white justify-center gap-3 bg-xpose-red px-6 py-4 text-xs font-bold uppercase tracking-[0.08em] text-white transition-colors duration-300 hover:bg-xpose-deep-red sm:px-7"
                     >
                       Get a Free Quote
 
@@ -263,7 +263,7 @@ export default function HeroSection() {
 
                     <a
                       href="#portfolio"
-                      className="group flex items-center justify-center gap-3 border border-white/30 bg-transparent px-6 py-4 text-xs font-bold uppercase tracking-[0.08em] text-white transition-colors duration-300 hover:border-white hover:bg-white hover:text-xpose-black sm:px-7"
+                      className="group flex items-center rounded-2xl text-white justify-center gap-3 border border-white/30 bg-transparent px-6 py-4 text-xs font-bold uppercase tracking-[0.08em] text-white transition-colors duration-300 hover:border-white hover:bg-white hover:text-xpose-black sm:px-7"
                     >
                       Explore Our Work
 
@@ -288,7 +288,7 @@ export default function HeroSection() {
 
               <a
                 href="#products"
-                className="hidden items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.25em] text-white/50 transition-colors hover:text-white sm:flex"
+                className="hidden items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.25em] text-white transition-colors hover:text-white sm:flex"
               >
                 <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20">
                   <ChevronDown size={14} />

@@ -21,7 +21,7 @@ export default function Navbar() {
           DESKTOP / MOBILE NAVBAR
       ======================================== */}
 
-      <header className="fixed left-0 right-0 top-0 z-50 bg-xpose-off-white">
+      <header className="fixed left-0 right-0 top-0 z-50 bg-[#00afb5] rounded-b-3xl">
         <nav className="mx-auto flex h-[82px] max-w-[1440px] items-center justify-between border-b border-xpose-border px-5 sm:px-8 lg:px-10">
 
           {/* ========================================
@@ -52,7 +52,7 @@ export default function Navbar() {
               <a
                 key={item.label}
                 href={item.href}
-                className="group relative py-2 text-[13px] font-semibold tracking-wide text-xpose-black/65 transition-colors duration-300 hover:text-xpose-black"
+                className="group relative py-2 text-[16px] font-medium tracking-wide text-xpose-white transition-colors duration-300 hover:text-xpose-off-white"
               >
                 {item.label}
 
@@ -88,7 +88,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMenuOpen((prev) => !prev)}
-            className="relative z-50 flex h-10 w-10 items-center justify-center bg-xpose-black text-white lg:hidden"
+            className="relative z-50 flex h-10 w-10 items-center justify-center bg-xpose-red rounded-xl text-white lg:hidden"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
           >
@@ -125,7 +125,7 @@ export default function Navbar() {
                       duration: 0.3,
                       delay: index * 0.05,
                     }}
-                    className="group flex items-center justify-between py-5 text-xl font-semibold tracking-tight text-xpose-black"
+                    className="group flex items-center justify-between py-5 text-xl font-semibold tracking-tight text-xpose-white"
                   >
                     <span>{item.label}</span>
 
@@ -144,7 +144,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.25 }}
-                className="mt-6 flex items-center justify-between bg-xpose-red px-5 py-4 text-sm font-bold uppercase tracking-[0.08em] text-white"
+                className="mt-6 flex items-center justify-between bg-xpose-red px-5 py-4 text-sm rounded-2xl font-bold uppercase tracking-[0.08em] text-white"
               >
                 <span>Get a Free Quote</span>
 
